@@ -6,9 +6,9 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# === 模型路径配置 ===
+# === 模型路径配置（Qwen 版本） ===
 model_configs = {
-    "原始基座模型": "./llama-3B-Instruct",
+    "原始基座模型": "./qwen2.5-3B-Instruct",
     "F性格模型": "./dpo_outputs/model_f_3B",
     "T性格模型": "./dpo_outputs/model_t_3B"
 }
@@ -56,27 +56,22 @@ def build_prompt(dataset_name: str, text: str) -> str:
         return (
             "You are analyzing financial news headlines. Each headline reflects a short financial opinion or fact. "
             "Please classify the overall sentiment into one of the following categories:\n"
-            "- Bearish\n"
-            "- Bullish\n"
-            "- Neutral\n\n"
+            "- Bearish\n- Bullish\n- Neutral\n\n"
             "Respond with one word only.\n\n"
-            "Example:\n"
-            "Text: $GM -- GM loses a bull\n"
-            "Answer: Bearish\n\n"
+            "Example:\nText: $GM -- GM loses a bull\nAnswer: Bearish\n\n"
             "Now classify the following:\n"
             f"{text}\nAnswer:"
         )
     elif dataset_name == "mental":
         return (
-            f"You are given a short social media post that may reflect the mental state of the writer. "
-            f"Please classify it as either Normal or Depression based on the emotional content.\n\n"
+            "You are given a short social media post that may reflect the mental state of the writer. "
+            "Please classify it as either Normal or Depression based on the emotional content.\n\n"
             f"Text: {text}\n\nRespond with a single word: Normal or Depression."
         )
     else:
         raise ValueError(f"Unsupported dataset: {dataset_name}")
 
-
-# === 推理函数 ===
+# === 推理函数（Qwen：使用 chat template；去除会被忽略的采样参数） ===
 def local_generate(prompt, tokenizer, model):
     messages = [{"role": "user", "content": prompt}]
     full_prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
@@ -84,12 +79,9 @@ def local_generate(prompt, tokenizer, model):
 
     gen_kwargs = dict(
         max_new_tokens=128,
-        do_sample=True,
-        temperature=0.2,
-        top_p=0.8,
-        repetition_penalty=1.2,
+        do_sample=False,                 # 用贪婪解码，避免 Qwen 忽略 temperature/top_p/top_k 的告警
         eos_token_id=tokenizer.eos_token_id,
-        pad_token_id=tokenizer.pad_token_id
+        pad_token_id=tokenizer.pad_token_id,
     )
 
     with torch.no_grad():
@@ -99,19 +91,22 @@ def local_generate(prompt, tokenizer, model):
 
 # === 主流程 ===
 for dataset_name, dataset_path in dataset_configs.items():
-    df = pd.read_csv(dataset_path)  # text, label
+    df = pd.read_csv(dataset_path)  # 需包含列：text, label
     print(f"\n📄 正在测试数据集：{dataset_name}，共 {len(df)} 条")
 
     for model_name, model_path in model_configs.items():
         print(f"\n🧪 正在测试模型：{model_name}")
 
-        tokenizer = AutoTokenizer.from_pretrained(model_path)
-        tokenizer.pad_token = tokenizer.eos_token
-        tokenizer.pad_token_id = tokenizer.eos_token_id
+        tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token
+            tokenizer.pad_token_id = tokenizer.eos_token_id
+
         model = AutoModelForCausalLM.from_pretrained(
             model_path,
             torch_dtype=torch.float16,
-            device_map="auto"
+            device_map="auto",
+            trust_remote_code=True
         ).eval()
 
         predictions = []
@@ -128,5 +123,6 @@ for dataset_name, dataset_path in dataset_configs.items():
 
         save_dir = os.path.join("results", "sentiment", dataset_name, model_name)
         os.makedirs(save_dir, exist_ok=True)
-        df_result.to_csv(os.path.join(save_dir, f"{dataset_name}_sentiment_results.csv"), index=False, encoding="utf-8")
-        print(f"✅ 保存完成：{dataset_name} → {save_dir}")
+        df_result_path = os.path.join(save_dir, f"{dataset_name}_sentiment_results.csv")
+        df_result.to_csv(df_result_path, index=False, encoding="utf-8")
+        print(f"✅ 保存完成：{dataset_name} → {df_result_path}")

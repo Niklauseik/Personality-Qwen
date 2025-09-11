@@ -5,9 +5,9 @@ import pandas as pd
 import collections
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-# ✅ 三个模型配置
+# ✅ 三个模型配置（改成 Qwen）
 model_configs = {
-    "原始基座模型": "./llama-3B-Instruct",
+    "原始基座模型": "./qwen2.5-3B-Instruct",
     "F性格模型": "./dpo_outputs/model_f_3B",
     "T性格模型": "./dpo_outputs/model_t_3B"
 }
@@ -20,26 +20,26 @@ EARLY_STOP_COUNT = 6
 
 # ✅ 推理参数
 gen_kwargs = dict(
-    max_new_tokens=64,           # 答案很短，用不到太多 token
-    do_sample=False,             # ❗关闭采样 → 改为贪婪或束搜索，输出更稳定
-    temperature=0.0,             # ❗设为 0，完全贪婪（top-1）输出
+    max_new_tokens=64,
+    do_sample=False,
+    temperature=0.0,
 )
 
 # ✅ 加载数据集
 df = pd.read_json(MBTI_DATASET)
 
-# ✅ 主测试函数
-# ✅ 主测试函数（已合入图示 Prompt）
 def run_mbti_test(model_name, model_path):
     print(f"\n🧠 正在测试模型：{model_name}")
     save_dir = os.path.join(RESULTS_ROOT, model_name)
     os.makedirs(save_dir, exist_ok=True)
 
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    # Qwen 必须 trust_remote_code
+    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
         torch_dtype=torch.float16,
-        device_map="auto"
+        device_map="auto",
+        trust_remote_code=True
     ).eval()
 
     mbti_count = collections.Counter()
@@ -58,7 +58,6 @@ def run_mbti_test(model_name, model_path):
             a_value = row["choice_a"]["value"]
             b_value = row["choice_b"]["value"]
 
-            # ✅ 引入图示 prompt 风格（自然语言选择 + a 或 b 作为回复）
             user_prompt = (
                 "Now, You are answering a personality test.\n"
                 "Please read the following sentence carefully.\n"
@@ -108,7 +107,6 @@ def run_mbti_test(model_name, model_path):
 
         time.sleep(0.2)
 
-    # 汇总结果
     most_common_mbti = mbti_count.most_common(1)[0][0] if mbti_count else "N/A"
     most_common_by_dim = "".join([
         max(dimension_counts["E/I"], key=dimension_counts["E/I"].get, default="?"),
