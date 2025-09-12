@@ -1,3 +1,4 @@
 /models/
 /qwen2.5-3b-instruct.tar.gz
 /datasets
+**/.ipynb_checkpoints/
