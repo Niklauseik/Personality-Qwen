@@ -5,8 +5,8 @@ import os
 from huggingface_hub import snapshot_download, login
 
 # ===== 1) 按需修改这里 =====
-MODEL_ID = os.getenv("QWEN_MODEL_ID", "Qwen/Qwen2.5-3B-Instruct")
-TARGET_DIR = os.getenv("TARGET_DIR", "./models/qwen2.5-3b-instruct")  # 保存目录
+MODEL_ID = os.getenv("QWEN_MODEL_ID", "Qwen/Qwen2.5-7B-Instruct")
+TARGET_DIR = os.getenv("TARGET_DIR", "./models/qwen2.5-7B-Instruct")  # 保存目录
 HF_TOKEN   = os.getenv("HUGGINGFACE_TOKEN", "")  # 如需私有/大文件加速可填
 
 # 可选：国内镜像/代理（按需启用）
