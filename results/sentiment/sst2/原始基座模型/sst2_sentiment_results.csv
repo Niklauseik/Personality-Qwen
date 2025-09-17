@@ -1167,7 +1167,7 @@ idx,text,label,prediction
 1165,deemed important enough to make a film in which someone has to be hired to portray richard dawson ,1,negative
 1166,blab ,0,negative
 1167,is standard crime drama fare ... instantly forgettable and thoroughly dull . ,0,negative
-1168,-- that you should never forget ,1,positive
+1168,#NAME?,1,positive
 1169,"has little to do with the story , which becomes something about how lame it is to try and evade your responsibilities and that you should never , ever , leave a large dog alone with a toddler ",0,negative
 1170,more than ably ,1,negative
 1171,and a terrible story ,0,negative
@@ -1514,7 +1514,7 @@ idx,text,label,prediction
 1512,thanks to a small star with big heart ,1,positive
 1513,impersonal and abstract ,0,negative
 1514,it 's a glorious spectacle like those d.w. griffith made in the early days of silent film . ,1,positive
-1515,-- the real issues tucked between the silly and crude storyline ,0,negative
+1515,#NAME?,0,negative
 1516,if you 're a fan of the series you 'll love it and probably want to see it twice . ,1,positive
 1517,it misses a major opportunity to be truly revelatory about his psyche . ,0,negative
 1518,"the nonstop artifice ultimately proves tiresome , with the surface histrionics failing to compensate for the paper-thin characterizations and facile situations . ",0,negative
@@ -2060,7 +2060,7 @@ idx,text,label,prediction
 2058,african american professionals ,1,negative
 2059,"tipped this film into the `` a '' range , as is ",1,positive
 2060,of those reputedly `` unfilmable '' novels that has bucked the odds to emerge as an exquisite motion picture in its own right ,1,negative
-2061,emotionally and narratively complex ,1,neutral
+2061,emotionally and narratively complex ,1,invalid
 2062,consider it ` perfection . ' ,1,negative
 2063,", structure and rhythms ",1,negative
 2064,just too silly and ,0,negative
@@ -2158,7 +2158,7 @@ idx,text,label,prediction
 2156,adorable italian guys ,1,positive
 2157,critical ,0,negative
 2158,no doubt the star and everyone else involved had their hearts in the right place . ,1,positive
-2159,with exquisite craftsmanship ,1,neutral
+2159,with exquisite craftsmanship ,1,invalid
 2160,here is how so many talented people were convinced to waste their time ,0,negative
 2161,tens ,1,negative
 2162,"maybe you 'll be lucky , and there 'll be a power outage during your screening so you can get your money back . ",0,negative
@@ -2314,7 +2314,7 @@ idx,text,label,prediction
 2312,huppert ... is magnificent ,1,positive
 2313,puzzle whose pieces do not fit ,0,negative
 2314,"sorority boys , which is as bad at it is cruel , ",0,negative
-2315,-- and long -- for its own good ,0,negative
+2315,#NAME?,0,negative
 2316,"of empty , fetishistic violence in which murder is casual and fun ",0,negative
 2317,intrigue ,1,negative
 2318,its characters ' decisions only unsatisfactorily ,0,negative
@@ -2452,7 +2452,7 @@ idx,text,label,prediction
 2450,offering fine acting moments and ,1,negative
 2451,"a wacky , screwball comedy ",1,positive
 2452,"solid , satisfying fare ",1,positive
-2453,"-- a nice , harmless date film ",1,positive
+2453,#NAME?,1,positive
 2454,"overall , it 's a very entertaining , thought-provoking film with a simple message : god is love . ",1,positive
 2455,of 2-day old coke ,0,negative
 2456,combines the enigmatic features of ` memento ' ,1,negative
@@ -2907,7 +2907,7 @@ idx,text,label,prediction
 2905,extraordinary access ,1,positive
 2906,so intimate and sensual and funny and psychologically self-revealing ,1,positive
 2907,highly engaging . ,1,positive
-2908,wisdom and emotion ,1,neutral
+2908,wisdom and emotion ,1,invalid
 2909,"fascinating , unnerving examination ",1,positive
 2910,"watching this film , one is left with the inescapable conclusion that hitchens ' obsession with kissinger is , at bottom , a sophisticated flower child 's desire to purge the world of the tooth and claw of human power . ",1,negative
 2911,you were at home watching that movie instead of in the theater watching this one ,0,negative
@@ -3347,7 +3347,7 @@ idx,text,label,prediction
 3345,"'s about individual moments of mood , and an aimlessness that 's actually sort of amazing . ",1,positive
 3346,futile ,0,negative
 3347,month ,1,negative
-3348,-- as if the director is trying to dupe the viewer into taking it all as very important simply because the movie is ugly to look at and not a hollywood product ,0,negative
+3348,#NAME?,0,negative
 3349,"wonderfully loopy tale of love , longing , and voting ",1,negative
 3350,collapses under its own meager weight . ,0,negative
 3351,a satisfying well-made romantic comedy that 's both charming and well acted ,1,positive
@@ -4503,7 +4503,7 @@ idx,text,label,prediction
 4501,"a touching , small-scale story of family responsibility and care ",1,positive
 4502,the most resolutely unreligious parents ,0,negative
 4503,seeking an existent anti-virus ,1,negative
-4504,"part biography , part entertainment ",1,neutral
+4504,"part biography , part entertainment ",1,invalid
 4505,"goes straight to video -- with a lousy script , inept direction , pathetic acting , poorly dubbed dialogue and murky cinematography ",0,negative
 4506,'n safe as to often play like a milquetoast movie of the week blown up for the big screen . ,0,negative
 4507,'s like having an old friend for dinner ' . ,1,positive
@@ -4608,7 +4608,7 @@ idx,text,label,prediction
 4606,"it 's not like having a real film of nijinsky , but at least it 's better than that eponymous 1980 biopic that used soap in the places where the mysteries lingered . ",1,positive
 4607,that might have made no such thing ,1,negative
 4608,gondry 's direction is adequate ,1,negative
-4609,experimentation and improvisation ,1,neutral
+4609,experimentation and improvisation ,1,invalid
 4610,`` superior '' ,1,negative
 4611,the extraordinarily rich landscape ,1,negative
 4612,clever ways ,1,negative
@@ -4875,7 +4875,7 @@ idx,text,label,prediction
 4873,"it 's a big idea , but the film itself is small and shriveled ",0,negative
 4874,"has a knack for casting , often resurrecting performers who rarely work in movies now ... and drawing flavorful performances from bland actors ",1,positive
 4875,"smart , solid , kinetically-charged spy flick worthy ",1,positive
-4876,contemplation ,1,neutral
+4876,contemplation ,1,invalid
 4877,exciting documentary . ,1,positive
 4878,this is one of those war movies that focuses on human interaction rather than battle and action sequences ... and it 's all the stronger because of it . ,1,positive
 4879,"plays as more of a poetic than a strict reality , creating an intriguing species of artifice that gives the lady and the duke something of a theatrical air ",1,positive
@@ -6375,7 +6375,7 @@ idx,text,label,prediction
 6373,"it stays in formula -- which is a waste of de niro , mcdormand and the other good actors in the cast ",0,negative
 6374,because of its broad racial insensitivity towards african-americans ,0,negative
 6375,without context -- journalistic or historical ,0,negative
-6376,- she-cute baggage into her lead role as a troubled and determined homicide cop to quite pull off the heavy stuff ,0,negative
+6376,#NAME?,0,negative
 6377,"diesel is that rare creature -- an action hero with table manners , and one who proves that elegance is more than tattoo deep . ",1,positive
 6378,"some cute moments , funny scenes , and hits the target audience ( young bow wow fans ) - ",1,positive
 6379,soft-core twaddle ,0,negative
@@ -6500,7 +6500,7 @@ idx,text,label,prediction
 6498,enhanced by a surplus of vintage archive footage ,1,positive
 6499,is that it progresses in such a low-key manner that it risks monotony . ,0,negative
 6500,analyze this movie in three words : thumbs friggin ' down ,0,negative
-6501,"-- a film less about refracting all of world war ii through the specific conditions of one man , and more about that man ",1,negative
+6501,#NAME?,1,negative
 6502,makes these lives count . ,1,positive
 6503,trudge out ,0,negative
 6504,all the stronger ,1,negative
@@ -7664,7 +7664,7 @@ idx,text,label,prediction
 7662,", it is n't much fun . ",0,negative
 7663,a major director is emerging in world cinema ,1,positive
 7664,"a youthful , out-to-change-the-world aggressiveness ",1,positive
-7665,in a well-balanced fashion ,1,neutral
+7665,in a well-balanced fashion ,1,invalid
 7666,feeling like a great missed opportunity ,0,negative
 7667,"of hard-bitten , cynical journalists ",0,negative
 7668,skip the film and buy the philip glass soundtrack cd . ,0,negative
@@ -7821,7 +7821,7 @@ idx,text,label,prediction
 7819,"be one of the most appealing movies ever made about an otherwise appalling , and downright creepy , subject -- a teenage boy in love with his stepmother ",1,negative
 7820,"if a big musical number like ` praise the lord , he 's the god of second chances ' does n't put you off , this will be an enjoyable choice for younger kids . ",1,positive
 7821,it takes off in totally unexpected directions and keeps on going ,1,positive
-7822,undoubtedly ,1,neutral
+7822,undoubtedly ,1,invalid
 7823,"( clooney 's ) debut can be accused of being a bit undisciplined , but it has a tremendous , offbeat sense of style and humor that suggests he was influenced by some of the filmmakers who have directed him , especially the coen brothers and steven soderbergh ",1,positive
 7824,"sweet , funny , charming ",1,positive
 7825,"you leave the same way you came -- a few tasty morsels under your belt , but no new friends . ",0,negative
@@ -9558,7 +9558,7 @@ idx,text,label,prediction
 9556,idol 's ,1,negative
 9557,"contrived , maudlin and cliche-ridden ... if this sappy script was the best the contest received , those rejected must have been astronomically bad . ",0,negative
 9558,empathy and pity fogging up the screen ... his secret life enters the land of unintentional melodrama and tiresome love triangles . ,0,negative
-9559,toss-up ,1,neutral
+9559,toss-up ,1,invalid
 9560,poetry ,1,negative
 9561,often lethally dull ,0,negative
 9562,full of surprises . ,1,positive

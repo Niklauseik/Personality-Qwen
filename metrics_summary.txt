@@ -1,0 +1,36 @@
+======== fiqasa_sentiment ========
+model                    labels  support  accuracy  precision_macro  recall_macro  f1_macro  precision_weighted  recall_weighted  f1_weighted
+ 基座模型 negative|neutral|positive     1173      0.76             0.63          0.67      0.63                0.81             0.76         0.77
+  F模型 negative|neutral|positive     1173      0.79             0.63          0.65      0.64                0.80             0.79         0.79
+  T模型 negative|neutral|positive     1173      0.70             0.62          0.67      0.61                0.82             0.70         0.73
+
+======== imdb_sentiment ========
+model            labels  support  accuracy  precision_macro  recall_macro  f1_macro  precision_weighted  recall_weighted  f1_weighted
+ 基座模型 negative|positive    10000      0.07             0.07          0.07      0.07                0.07             0.07         0.07
+  F模型 negative|positive    10000      0.06             0.06          0.06      0.06                0.06             0.06         0.06
+  T模型 negative|positive    10000      0.07             0.07          0.07      0.07                0.07             0.07         0.07
+
+======== imdb_sklearn ========
+model            labels  support  accuracy  precision_macro  recall_macro  f1_macro  precision_weighted  recall_weighted  f1_weighted
+ 基座模型 negative|positive    10000      0.92             0.93          0.92      0.92                0.93             0.92         0.92
+  F模型 negative|positive    10000      0.93             0.93          0.93      0.93                0.93             0.93         0.93
+  T模型 negative|positive    10000      0.91             0.92          0.91      0.91                0.92             0.91         0.91
+
+======== mental_sentiment ========
+model            labels  support  accuracy  precision_macro  recall_macro  f1_macro  precision_weighted  recall_weighted  f1_weighted
+ 基座模型 depression|normal    31747      0.90             0.90          0.90      0.90                0.90             0.90         0.90
+  F模型 depression|normal    31747      0.87             0.88          0.87      0.87                0.88             0.87         0.87
+  T模型 depression|normal    31747      0.91             0.91          0.91      0.91                0.91             0.91         0.91
+
+======== news_sentiment ========
+model                  labels  support  accuracy  precision_macro  recall_macro  f1_macro  precision_weighted  recall_weighted  f1_weighted
+ 基座模型 bearish|bullish|neutral    11931      0.78             0.73          0.78      0.75                0.80             0.78         0.79
+  F模型 bearish|bullish|neutral    11931      0.75             0.72          0.74      0.71                0.79             0.75         0.76
+  T模型 bearish|bullish|neutral    11931      0.80             0.74          0.77      0.76                0.80             0.80         0.80
+
+======== sst2 ========
+model            labels  support  accuracy  precision_macro  recall_macro  f1_macro  precision_weighted  recall_weighted  f1_weighted
+ 基座模型 negative|positive    10000      0.76             0.82          0.78      0.75                0.84             0.76         0.75
+  F模型 negative|positive    10000      0.81             0.85          0.83      0.81                0.86             0.81         0.81
+  T模型 negative|positive    10000      0.71             0.80          0.74      0.70                0.82             0.71         0.69
+
