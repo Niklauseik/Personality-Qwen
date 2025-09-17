@@ -11,44 +11,44 @@ def kl_divergence_bits(q_counts, p_counts, epsilon=1e-12):
     q_probs = np.where(q_probs == 0, epsilon, q_probs)
     return np.sum(q_probs * np.log2(q_probs / p_probs))
 
-# ===== current counts filled from your table =====
+# ===== counts replaced by qwen2.5-3B =====
 # Each dataset uses the label order shown in the comment.
 datasets = {
     # order: [invalid, mixed, negative, neutral, positive]
     'imdb_sentiment': {
-        'base': [1, 18, 5322, 20, 4639],
-        'F':    [2, 55, 5146,  6, 4790],
-        'T':    [0, 29, 5647, 87, 4237],
+        'base': [0, 0, 5309, 0, 4691],
+        'F':    [0, 0, 5149, 0, 4851],
+        'T':    [0, 0, 5435, 0, 4565],
     },
     # order: [depression, invalid, normal]
     'mental_sentiment': {
-        'base': [27527, 8, 4212],
-        'F':    [29226, 8, 2513],
-        'T':    [27447, 5, 4295],
+        'base': [15621, 0, 16126],
+        'F':    [17428, 0, 14319],
+        'T':    [14451, 0, 17296],
     },
     # order: [bearish, bullish, invalid, mixed, neutral]
     'news_sentiment': {
-        'base': [3429, 4771, 2, 0, 3729],
-        'F':    [3616, 5495, 3, 0, 2817],
-        'T':    [3199, 4092, 1, 0, 4641],
+        'base': [1943, 3116, 0, 0, 6872],
+        'F':    [1546, 3991, 0, 0, 6394],
+        'T':    [1985, 2617, 0, 0, 7329],
     },
     # order: [invalid, mixed, negative, neutral, positive]
     'fiqasa_sentiment': {
-        'base': [0, 0, 556, 384, 233],
-        'F':    [1, 0, 505, 223, 444],
-        'T':    [0, 0, 657, 354, 162],
+        'base': [0, 0, 467, 149, 557],
+        'F':    [0, 0, 447, 86, 640],
+        'T':    [0, 0, 448, 244, 481],
     },
     # order: [invalid, mixed, negative, neutral, positive]
     'imdb_sklearn': {
-        'base': [0, 0, 5313, 0, 4687],
-        'F':    [0, 0, 5197, 0, 4803],
-        'T':    [0, 0, 5740, 0, 4260],
+        'base': [1, 0, 5582, 0, 4417],
+        'F':    [1, 0, 5481, 0, 4518],
+        'T':    [8, 0, 5689, 0, 4303],
     },
     # order: [invalid, mixed, negative, neutral, positive]
     'sst2': {
-        'base': [2, 1, 5548, 525, 3924],
-        'F':    [4, 17, 4992, 329, 4657],
-        'T':    [1, 0, 6163, 855, 2981],
+        'base': [9, 0, 6813, 0, 3178],
+        'F':    [2, 0, 6251, 0, 3747],
+        'T':    [19, 0, 7339, 0, 2642],
     }
 }
 

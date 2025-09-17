@@ -1,61 +1,61 @@
 import matplotlib.pyplot as plt
 import os
 
-# === 0. 原始结果（直接填入最新数字） =========================
+# === 0. 原始结果（替换为 qwen2.5-3B 的最新数字） =================
 normalized_results_with_invalid = {
     "imdb_sentiment": {
-        "base": {"invalid": 1, "mixed": 18, "negative": 5322, "neutral": 20, "positive": 4639},
-        "f":    {"invalid": 2, "mixed": 55, "negative": 5146, "neutral": 6,  "positive": 4790},
-        "t":    {"invalid": 0, "mixed": 29, "negative": 5647, "neutral": 87, "positive": 4237},
+        "base": {"invalid": 0, "mixed": 0, "negative": 5309, "neutral": 0, "positive": 4691},
+        "f":    {"invalid": 0, "mixed": 0, "negative": 5149, "neutral": 0, "positive": 4851},
+        "t":    {"invalid": 0, "mixed": 0, "negative": 5435, "neutral": 0, "positive": 4565},
     },
     "mental_sentiment": {
-        "base": {"depression": 27527, "invalid": 8, "normal": 4212},
-        "f":    {"depression": 29226, "invalid": 8, "normal": 2513},
-        "t":    {"depression": 27447, "invalid": 5, "normal": 4295},
+        "base": {"depression": 15621, "invalid": 0, "normal": 16126},
+        "f":    {"depression": 17428, "invalid": 0, "normal": 14319},
+        "t":    {"depression": 14451, "invalid": 0, "normal": 17296},
     },
-    "financial_sentiment": {
-        "base": {"bearish": 3429, "bullish": 4771, "invalid": 2, "mixed": 0, "neutral": 3729},
-        "f":    {"bearish": 3616, "bullish": 5495, "invalid": 3, "mixed": 0, "neutral": 2817},
-        "t":    {"bearish": 3199, "bullish": 4092, "invalid": 1, "mixed": 0, "neutral": 4641},
+    "news_sentiment": {  # <- 原来叫 financial_sentiment，这里改名为 news_sentiment
+        "base": {"bearish": 1943, "bullish": 3116, "invalid": 0, "mixed": 0, "neutral": 6872},
+        "f":    {"bearish": 1546, "bullish": 3991, "invalid": 0, "mixed": 0, "neutral": 6394},
+        "t":    {"bearish": 1985, "bullish": 2617, "invalid": 0, "mixed": 0, "neutral": 7329},
     },
     "fiqasa_sentiment": {
-        "base": {"invalid": 0, "mixed": 0, "negative": 556, "neutral": 384, "positive": 233},
-        "f":    {"invalid": 1, "mixed": 0, "negative": 505, "neutral": 223, "positive": 444},
-        "t":    {"invalid": 0, "mixed": 0, "negative": 657, "neutral": 354, "positive": 162},
+        "base": {"invalid": 0, "mixed": 0, "negative": 467, "neutral": 149, "positive": 557},
+        "f":    {"invalid": 0, "mixed": 0, "negative": 447, "neutral": 86,  "positive": 640},
+        "t":    {"invalid": 0, "mixed": 0, "negative": 448, "neutral": 244, "positive": 481},
     },
     "imdb_sklearn": {
-        "base": {"invalid": 0, "mixed": 0, "negative": 5313, "neutral": 0, "positive": 4687},
-        "f":    {"invalid": 0, "mixed": 0, "negative": 5197, "neutral": 0, "positive": 4803},
-        "t":    {"invalid": 0, "mixed": 0, "negative": 5740, "neutral": 0, "positive": 4260},
+        "base": {"invalid": 1, "mixed": 0, "negative": 5582, "neutral": 0, "positive": 4417},
+        "f":    {"invalid": 1, "mixed": 0, "negative": 5481, "neutral": 0, "positive": 4518},
+        "t":    {"invalid": 8, "mixed": 0, "negative": 5689, "neutral": 0, "positive": 4303},
     },
     "sst2": {
-        "base": {"invalid": 2,  "mixed": 1,  "negative": 5548, "neutral": 525,  "positive": 3924},
-        "f":    {"invalid": 4,  "mixed": 17, "negative": 4992, "neutral": 329,  "positive": 4657},
-        "t":    {"invalid": 1,  "mixed": 0,  "negative": 6163, "neutral": 855,  "positive": 2981},
+        "base": {"invalid": 9,  "mixed": 0, "negative": 6813, "neutral": 0, "positive": 3178},
+        "f":    {"invalid": 2,  "mixed": 0, "negative": 6251, "neutral": 0, "positive": 3747},
+        "t":    {"invalid": 19, "mixed": 0, "negative": 7339, "neutral": 0, "positive": 2642},
     }
 }
 
-# === 1. 允许字段配置（sst2 仅保留 positive & negative） ===========
+# === 1. 允许字段配置（与数据集名称一致） ==========================
 allowed_labels = {
-    "imdb_sentiment":      {"negative", "positive"},
-    "mental_sentiment":    {"depression", "normal"},
-    "financial_sentiment": {"bearish", "bullish", "neutral"},
-    "fiqasa_sentiment":    {"negative", "positive", "neutral"},
-    "imdb_sklearn":        {"negative", "positive"},
-    "sst2":                {"negative", "positive"},   # <- 关键修改
+    "imdb_sentiment":   {"negative", "positive"},
+    "mental_sentiment": {"depression", "normal"},
+    "news_sentiment":   {"bearish", "bullish", "neutral"},
+    "fiqasa_sentiment": {"negative", "positive", "neutral"},
+    "imdb_sklearn":     {"negative", "positive"},
+    "sst2":             {"negative", "positive"},
 }
 
-# === 2. 统一归并到 invalid ========================================
+# === 2. 统一归并到 invalid =======================================
 for dataset, model_data in normalized_results_with_invalid.items():
     allow = allowed_labels.get(dataset, set())
     for model_name, counts in model_data.items():
         extra_sum = 0
-        for label in list(counts):  # 复制键，便于安全删除
+        for label in list(counts):
             if label not in allow and label != "invalid":
                 extra_sum += counts.pop(label)
         counts["invalid"] = counts.get("invalid", 0) + extra_sum
 
-# === 3. 绘图与保存（与截图保持一致） =============================
+# === 3. 绘图与保存 ===============================================
 os.makedirs("plots", exist_ok=True)
 
 for dataset, model_data in normalized_results_with_invalid.items():
@@ -72,10 +72,9 @@ for dataset, model_data in normalized_results_with_invalid.items():
             autopct='%1.1f%%',
             startangle=140
         )
-        axs[idx].axis('equal')                # 保持为圆
+        axs[idx].axis('equal')
         axs[idx].set_title(f"{model.upper()}")
 
-    # 保存到 plots 文件夹
     fig.savefig(f"plots/{dataset}_prediction_distribution.png")
 
-plt.close('all')  # 释放内存
+plt.close('all')
