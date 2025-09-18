@@ -2719,7 +2719,7 @@ idx,text,label,prediction
 2717,"-- when are bears bears and when are they like humans , only hairier -- would tax einstein 's brain . ",0,negative
 2718,shallow and immature character with whom to spend 110 claustrophobic minutes ,0,negative
 2719,no foundation ,0,negative
-2720,is a frighteningly fascinating contradiction ,1,fascinating
+2720,is a frighteningly fascinating contradiction ,1,positive
 2721,cheery ,1,positive
 2722,", uncompromising ",0,Negative
 2723,searing performances ,1,positive
@@ -9247,7 +9247,7 @@ idx,text,label,prediction
 9245,to the courage of new york 's finest and a nicely understated expression of the grief ,1,positive
 9246,action-adventure buffs ,1,Positive
 9247,stop buying tickets to these movies ,0,negative
-9248,"the start -- and , refreshingly , ",1,refreshingly
+9248,"the start -- and , refreshingly , ",1,positive
 9249,", in the hands of a brutally honest individual like prophet jack , might have made a point or two regarding life ",0,Positive
 9250,rich with human events ,1,Positive
 9251,the dynamic first act ,1,Positive
