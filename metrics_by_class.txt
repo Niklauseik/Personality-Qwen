@@ -1,0 +1,51 @@
+======== fiqasa_sentiment ========
+         dataset model    class  support_true  pred_count  tp  precision  recall   f1
+fiqasa_sentiment   F模型 negative           362         317 277       0.87    0.77 0.82
+fiqasa_sentiment   F模型  neutral            91         320  70       0.22    0.77 0.34
+fiqasa_sentiment   F模型 positive           719         535 510       0.95    0.71 0.81
+fiqasa_sentiment   T模型 negative           363         304 270       0.89    0.74 0.81
+fiqasa_sentiment   T模型  neutral            91         433  78       0.18    0.86 0.30
+fiqasa_sentiment   T模型 positive           719         436 421       0.97    0.59 0.73
+fiqasa_sentiment  基座模型 negative           362         314 275       0.88    0.76 0.81
+fiqasa_sentiment  基座模型  neutral            91         370  74       0.20    0.81 0.32
+fiqasa_sentiment  基座模型 positive           719         488 467       0.96    0.65 0.77
+
+======== imdb_sklearn ========
+     dataset model    class  support_true  pred_count   tp  precision  recall   f1
+imdb_sklearn   F模型 negative          4947        5038 4753       0.94    0.96 0.95
+imdb_sklearn   F模型 positive          5003        4912 4718       0.96    0.94 0.95
+imdb_sklearn   T模型 negative          4962        5277 4841       0.92    0.98 0.95
+imdb_sklearn   T模型 positive          5009        4694 4573       0.97    0.91 0.94
+imdb_sklearn  基座模型 negative          4962        5142 4797       0.93    0.97 0.95
+imdb_sklearn  基座模型 positive          5013        4833 4668       0.97    0.93 0.95
+
+======== mental_sentiment ========
+         dataset model      class  support_true  pred_count    tp  precision  recall   f1
+mental_sentiment   F模型 depression         15403       20686 15003       0.73    0.97 0.83
+mental_sentiment   F模型     normal         16343       11060 10660       0.96    0.65 0.78
+mental_sentiment   T模型 depression         15402       18462 14816       0.80    0.96 0.88
+mental_sentiment   T模型     normal         16343       13283 12697       0.96    0.78 0.86
+mental_sentiment  基座模型 depression         15403       19549 14923       0.76    0.97 0.85
+mental_sentiment  基座模型     normal         16343       12197 11717       0.96    0.72 0.82
+
+======== news_sentiment ========
+       dataset model   class  support_true  pred_count   tp  precision  recall   f1
+news_sentiment   F模型 bearish          1774        1399 1160       0.83    0.65 0.73
+news_sentiment   F模型 bullish          2398        4156 2184       0.53    0.91 0.67
+news_sentiment   F模型 neutral          7715        6332 5638       0.89    0.73 0.80
+news_sentiment   T模型 bearish          1789        1159 1003       0.87    0.56 0.68
+news_sentiment   T模型 bullish          2398        3417 2055       0.60    0.86 0.71
+news_sentiment   T模型 neutral          7744        7355 6431       0.87    0.83 0.85
+news_sentiment  基座模型 bearish          1789        1340 1112       0.83    0.62 0.71
+news_sentiment  基座模型 bullish          2398        3628 2123       0.59    0.89 0.70
+news_sentiment  基座模型 neutral          7743        6962 6146       0.88    0.79 0.84
+
+======== sst2 ========
+dataset model    class  support_true  pred_count   tp  precision  recall   f1
+   sst2   F模型 negative          4387        4771 4233       0.89    0.96 0.92
+   sst2   F模型 positive          5257        4873 4719       0.97    0.90 0.93
+   sst2   T模型 negative          4363        5142 4299       0.84    0.99 0.90
+   sst2   T模型 positive          4943        4164 4100       0.98    0.83 0.90
+   sst2  基座模型 negative          4377        4950 4271       0.86    0.98 0.92
+   sst2  基座模型 positive          5121        4548 4442       0.98    0.87 0.92
+

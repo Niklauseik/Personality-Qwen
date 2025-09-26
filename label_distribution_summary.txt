@@ -1,48 +1,48 @@
 ======== imdb_sentiment ========
           真实数量  基座模型   F模型   T模型
-invalid      0     0     0     0
-mixed        0    18    32     8
 negative  5000  5117  5021  5251
-neutral      0    13    10    18
 positive  5000  4852  4937  4723
+neutral      0    13    10    18
+mixed        0    18    32     8
+invalid      0     0     0     0
 
 ======== mental_sentiment ========
              真实数量   基座模型    F模型    T模型
-depression  15404  19550  20686  18463
-invalid         0      1      1      2
-mixed           0      0      0      0
+depression  15404  19547  20681  18459
+normal      16343  12196  11060  13282
 neutral         0      0      0      0
-normal      16343  12199  11065  13286
+mixed           0      3      5      4
+invalid         0      1      1      2
 
 ======== news_sentiment ========
          真实数量  基座模型   F模型   T模型
 bearish  1789  1340  1399  1159
 bullish  2398  3628  4156  3417
-invalid     0     1    44     0
-mixed       0     0     0     0
 neutral  7744  6962  6332  7355
+mixed       0     0     0     0
+invalid     0     1    44     0
 
 ======== fiqasa_sentiment ========
           真实数量  基座模型  F模型  T模型
-invalid      0     0    0    0
-mixed        0     1    1    0
 negative   363   314  317  304
 neutral     91   370  320  433
 positive   719   488  535  436
+mixed        0     1    1    0
+invalid      0     0    0    0
 
 ======== imdb_sklearn ========
           真实数量  基座模型   F模型   T模型
-invalid      0     0     0     0
-mixed        0    18    45    14
-negative  4972  5142  5038  5277
+negative  4972  5142  5037  5276
+positive  5028  4833  4912  4694
 neutral      0     7     6    15
-positive  5028  4833  4912  4695
+mixed        0    18    45    15
+invalid      0     0     0     0
 
 ======== sst2 ========
           真实数量  基座模型   F模型   T模型
-invalid      0     0     1     0
-mixed        0     6    10     7
 negative  4471  4950  4771  5142
-neutral      0   496   345   687
 positive  5529  4548  4873  4164
+neutral      0   496   345   687
+mixed        0     6    10     7
+invalid      0     0     1     0
 

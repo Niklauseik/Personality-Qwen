@@ -96,7 +96,7 @@ def extract_pred_label(text: str, allowed: list) -> str:
 # ========= 主流程：对 sentiment 和 sentiment_pre 分别计算 =========
 root_dirs = [
     ("results/sentiment", ""),         # 第一次实验，无后缀
-    ("results/sentiment_pre", "_pre"), # 第二次实验，带 _pre 后缀
+    ("3B_results/sentiment", "_3B"), # 第二次实验，带 _pre 后缀
 ]
 
 for root_dir, suffix in root_dirs:

@@ -4,36 +4,37 @@ import os
 # === 0. 原始结果（替换为 qwen2.5-3B 的最新数字） =================
 normalized_results_with_invalid = {
     "imdb_sentiment": {
-        "base": {"invalid": 0, "mixed": 0, "negative": 5309, "neutral": 0, "positive": 4691},
-        "f":    {"invalid": 0, "mixed": 0, "negative": 5149, "neutral": 0, "positive": 4851},
-        "t":    {"invalid": 0, "mixed": 0, "negative": 5435, "neutral": 0, "positive": 4565},
+        "base": {"invalid": 0, "mixed": 18, "negative": 5117, "neutral": 13, "positive": 4852},
+        "f":    {"invalid": 0, "mixed": 32, "negative": 5021, "neutral": 10, "positive": 4937},
+        "t":    {"invalid": 0, "mixed": 8,  "negative": 5251, "neutral": 18, "positive": 4723},
     },
     "mental_sentiment": {
-        "base": {"depression": 15621, "invalid": 0, "normal": 16126},
-        "f":    {"depression": 17428, "invalid": 0, "normal": 14319},
-        "t":    {"depression": 14451, "invalid": 0, "normal": 17296},
+        "base": {"depression": 19547, "invalid": 1, "mixed": 3, "neutral": 0, "normal": 12196},
+        "f":    {"depression": 20681, "invalid": 1, "mixed": 5, "neutral": 0, "normal": 11060},
+        "t":    {"depression": 18459, "invalid": 2, "mixed": 4, "neutral": 0, "normal": 13282},
     },
-    "news_sentiment": {  # <- 原来叫 financial_sentiment，这里改名为 news_sentiment
-        "base": {"bearish": 1943, "bullish": 3116, "invalid": 0, "mixed": 0, "neutral": 6872},
-        "f":    {"bearish": 1546, "bullish": 3991, "invalid": 0, "mixed": 0, "neutral": 6394},
-        "t":    {"bearish": 1985, "bullish": 2617, "invalid": 0, "mixed": 0, "neutral": 7329},
+    "news_sentiment": {
+        "base": {"bearish": 1340, "bullish": 3628, "invalid": 1,  "mixed": 0, "neutral": 6962},
+        "f":    {"bearish": 1399, "bullish": 4156, "invalid": 44, "mixed": 0, "neutral": 6332},
+        "t":    {"bearish": 1159, "bullish": 3417, "invalid": 0,  "mixed": 0, "neutral": 7355},
     },
     "fiqasa_sentiment": {
-        "base": {"invalid": 0, "mixed": 0, "negative": 467, "neutral": 149, "positive": 557},
-        "f":    {"invalid": 0, "mixed": 0, "negative": 447, "neutral": 86,  "positive": 640},
-        "t":    {"invalid": 0, "mixed": 0, "negative": 448, "neutral": 244, "positive": 481},
+        "base": {"invalid": 0, "mixed": 1, "negative": 314, "neutral": 370, "positive": 488},
+        "f":    {"invalid": 0, "mixed": 1, "negative": 317, "neutral": 320, "positive": 535},
+        "t":    {"invalid": 0, "mixed": 0, "negative": 304, "neutral": 433, "positive": 436},
     },
     "imdb_sklearn": {
-        "base": {"invalid": 1, "mixed": 0, "negative": 5582, "neutral": 0, "positive": 4417},
-        "f":    {"invalid": 1, "mixed": 0, "negative": 5481, "neutral": 0, "positive": 4518},
-        "t":    {"invalid": 8, "mixed": 0, "negative": 5689, "neutral": 0, "positive": 4303},
+        "base": {"invalid": 0, "mixed": 18, "negative": 5142, "neutral": 7,  "positive": 4833},
+        "f":    {"invalid": 0, "mixed": 45, "negative": 5037, "neutral": 6,  "positive": 4912},
+        "t":    {"invalid": 0, "mixed": 15, "negative": 5276, "neutral": 15, "positive": 4694},
     },
     "sst2": {
-        "base": {"invalid": 9,  "mixed": 0, "negative": 6813, "neutral": 0, "positive": 3178},
-        "f":    {"invalid": 2,  "mixed": 0, "negative": 6251, "neutral": 0, "positive": 3747},
-        "t":    {"invalid": 19, "mixed": 0, "negative": 7339, "neutral": 0, "positive": 2642},
+        "base": {"invalid": 0, "mixed": 6,  "negative": 4950, "neutral": 496, "positive": 4548},
+        "f":    {"invalid": 1, "mixed": 10, "negative": 4771, "neutral": 345, "positive": 4873},
+        "t":    {"invalid": 0, "mixed": 7,  "negative": 5142, "neutral": 687, "positive": 4164},
     }
 }
+
 
 # === 1. 允许字段配置（与数据集名称一致） ==========================
 allowed_labels = {
